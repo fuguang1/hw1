@@ -1,0 +1,6 @@
+clear all;
+clc;
+I_origin = imread('lena.bmp');
+Mean_image = mean2(I_origin);
+Var_image = std2(I_origin)^2;
+fprintf('The mean is %f.\nThe var is %f.',Mean_image,Var_image)
