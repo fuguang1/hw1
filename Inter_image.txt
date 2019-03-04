@@ -1,0 +1,9 @@
+clear all;
+clc;
+I_origin = imread('lena.bmp');
+I_near = imresize(I_origin,4);
+I_bili = imresize(I_origin,4,'bilinear');
+I_bicu = imresize(I_origin,4,'bicubic');
+subplot(1,3,1);imshow(I_near);title('近邻');
+subplot(1,3,2);imshow(I_bili);title('双线性');
+subplot(1,3,3);imshow(I_bicu);title('双三次');
