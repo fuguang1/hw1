@@ -1,0 +1,29 @@
+clear all;
+clc;
+I_ori_lena = imread('lena.bmp');
+I_ori_elain = imread('elain1.bmp');
+type = 'affine';
+form = [1,1.5,0;0,1,0;0,0,1];
+Transform = maketform(type,form);
+I_shear_lena = imtransform(I_ori_lena,Transform);
+I_shear_elain = imtransform(I_ori_elain,Transform);
+figure(1);
+subplot(1,2,1);imshow(I_shear_lena);title('shear lena');
+subplot(1,2,2);imshow(I_shear_elain);title('shear elain');
+I_near_lena = imresize(I_shear_lena,[2048,2048]);
+I_bili_lena = imresize(I_shear_lena,[2048,2048],'bilinear');
+I_bicu_lena = imresize(I_shear_lena,[2048,2048],'bicubic');
+figure(2);
+subplot(1,3,1);imshow(I_near_lena);title('近邻lena');
+subplot(1,3,2);imshow(I_bili_lena);title('双线性lena');
+subplot(1,3,3);imshow(I_bicu_lena);title('双三次lena');
+I_near_elain = imresize(I_shear_elain,[2048,2048]);
+I_bili_elain = imresize(I_shear_elain,[2048,2048],'bilinear');
+I_bicu_elain = imresize(I_shear_elain,[2048,2048],'bicubic');
+figure(3);
+subplot(1,3,1);imshow(I_near_elain);title('近邻elain');
+subplot(1,3,2);imshow(I_bili_elain);title('双线性elain');
+subplot(1,3,3);imshow(I_bicu_elain);title('双三次elain');
+
+
+
