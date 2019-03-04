@@ -1,0 +1,22 @@
+clear all;
+clc;
+I_8 = imread('lena.bmp');
+for i = 1:512
+    for j = 1:512
+        I_7(i,j) = uint8(I_8(i,j)/2);
+        I_6(i,j) = uint8(I_8(i,j)/4);
+        I_5(i,j) = uint8(I_8(i,j)/8);
+        I_4(i,j) = uint8(I_8(i,j)/16);
+        I_3(i,j) = uint8(I_8(i,j)/32);
+        I_2(i,j) = uint8(I_8(i,j)/64);
+        I_1(i,j) = uint8(I_8(i,j)/128);
+    end
+end
+subplot(2,4,1);imshow(I_8,[0,255]);title('8子業');
+subplot(2,4,2);imshow(I_7,[0,127]);title('7子業');
+subplot(2,4,3);imshow(I_6,[0,63]);title('6子業');
+subplot(2,4,4);imshow(I_5,[0,31]);title('5子業');
+subplot(2,4,5);imshow(I_4,[0,15]);title('4子業');
+subplot(2,4,6);imshow(I_3,[0,7]);title('3子業');
+subplot(2,4,7);imshow(I_2,[0,3]);title('2子業');
+subplot(2,4,8);imshow(I_1,[0,1]);title('1子業');
